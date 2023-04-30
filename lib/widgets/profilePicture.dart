@@ -7,8 +7,8 @@ class ProfilePicture extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: 100,
-        height: 100,
+        width: 125,
+        height: 125,
         decoration: BoxDecoration(
           color: Colors.black,
           shape: BoxShape.circle,
@@ -20,7 +20,7 @@ class ProfilePicture extends StatelessWidget {
         child: const Icon(
           Icons.person_outline,
           color: primaryColor,
-          size: 45,
+          size: 60,
         ));
   }
 }

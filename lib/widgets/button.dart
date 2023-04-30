@@ -25,7 +25,7 @@ class Button extends StatelessWidget {
     Color buttonColor() {
       if (color == null) {
         if (themeProvider.darkTheme) {
-          return Color.fromARGB(255, 212, 212, 212);
+          return const Color.fromARGB(255, 212, 212, 212);
         } else {
           return Colors.black;
         }

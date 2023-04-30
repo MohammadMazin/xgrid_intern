@@ -6,7 +6,7 @@ final ElevatedButtonThemeData elevatedButtonTheme = ElevatedButtonThemeData(
     elevation: 0,
     backgroundColor: const Color.fromARGB(255, 207, 216, 220),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(25),
     ),
   ),
 );

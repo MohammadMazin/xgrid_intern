@@ -21,7 +21,7 @@ class SettingsButton extends StatelessWidget {
           child: Row(children: [
             Icon(icon, color: Colors.black),
             const SizedBox(
-              width: 15,
+              width: 20,
             ),
             Text(
               text,

@@ -37,9 +37,7 @@ class Profile extends StatelessWidget {
               children: [
                 IconButton(
                   icon: renderIcon(),
-                  onPressed: () =>
-                      // set theme to opposite of current
-                      MainApp.of(context).changeTheme(),
+                  onPressed: () => MainApp.of(context).changeTheme(),
                 ),
               ],
             ),

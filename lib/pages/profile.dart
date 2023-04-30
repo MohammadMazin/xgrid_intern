@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:xgrid_internship/main.dart';
+import 'package:xgrid_internship/utils/ThemeData.dart';
 import 'package:xgrid_internship/widgets/button.dart';
 import 'package:xgrid_internship/widgets/profilePicture.dart';
+import 'package:xgrid_internship/widgets/settingsButton.dart';
+
+import '../utils/DarkThemeProvider.dart';
 
 class Profile extends StatelessWidget {
   Profile();
-  final double GAP = 10;
+  final double GAP = 20;
 
   @override
   Widget build(BuildContext context) {
+    final themeChange = Provider.of<DarkThemeProvider>(context);
     return Scaffold(
       body: Container(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Row(
-            // moon icon on the right
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
@@ -28,18 +33,22 @@ class Profile extends StatelessWidget {
           ),
           const ProfilePicture(),
           SizedBox(height: GAP),
-          const Text(
+          Text(
             'John Doe',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.displayMedium,
           ),
           SizedBox(height: GAP),
-          const Text(
+          Text(
             'john.doe@example.com',
+            style: Theme.of(context).textTheme.displaySmall,
           ),
           SizedBox(height: GAP),
+          const Button(
+            text: 'Upgrade to PRO',
+            color: primaryColor,
+            width: 0.5,
+          ),
+          SizedBox(height: GAP * 2),
           const SettingsButton(
             icon: IconData(0xf2d0, fontFamily: 'MaterialIcons'),
             text: 'Privacy',
@@ -63,6 +72,12 @@ class Profile extends StatelessWidget {
           const SettingsButton(
             icon: Icons.person_add_outlined,
             text: 'Invite a Friend',
+          ),
+          SizedBox(height: GAP),
+          const Button(
+            text: 'Logout',
+            fontWeight: FontWeight.bold,
+            fontSize: 18,
           ),
           SizedBox(height: GAP),
         ],

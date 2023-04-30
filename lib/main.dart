@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:xgrid_internship/pages/profile.dart';
+import 'package:xgrid_internship/utils/ThemeData.dart';
 
 void main() {
   runApp(const MainApp());
@@ -18,7 +19,10 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   ThemeMode _themeMode = ThemeMode.system;
 
-  void changeTheme(ThemeMode themeMode) {
+  void changeTheme() {
+    // swap between light and dark
+    final themeMode =
+        _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
     setState(() {
       _themeMode = themeMode;
     });
@@ -27,9 +31,9 @@ class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(),
+        theme: lightTheme,
         themeMode: _themeMode,
-        darkTheme: ThemeData.dark(),
+        darkTheme: darkTheme,
         home: Profile());
   }
 }

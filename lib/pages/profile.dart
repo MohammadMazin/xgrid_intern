@@ -25,73 +25,74 @@ class Profile extends StatelessWidget {
     }
 
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(
-          top: 25,
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                IconButton(
-                  icon: renderIcon(),
-                  onPressed: () => MainApp.of(context).changeTheme(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    IconButton(
+                      icon: renderIcon(),
+                      onPressed: () => MainApp.of(context).changeTheme(),
+                    ),
+                  ],
                 ),
+                const ProfilePicture(),
+                SizedBox(height: GAP),
+                Text(
+                  'John Doe',
+                  style: Theme.of(context).textTheme.displayMedium,
+                ),
+                SizedBox(height: GAP / 2),
+                Text(
+                  'john.doe@example.com',
+                  style: Theme.of(context).textTheme.displaySmall,
+                ),
+                SizedBox(height: GAP),
+                const Button(
+                  text: 'Upgrade to PRO',
+                  color: primaryColor,
+                  width: 0.5,
+                  fontWeight: FontWeight.bold,
+                ),
+                SizedBox(height: GAP * 2),
+                const SettingsButton(
+                  icon: IconData(0xf2d0, fontFamily: 'MaterialIcons'),
+                  text: 'Privacy',
+                ),
+                SizedBox(height: GAP),
+                const SettingsButton(
+                  icon: IconData(0xe314, fontFamily: 'MaterialIcons'),
+                  text: 'Purchase History',
+                ),
+                SizedBox(height: GAP),
+                const SettingsButton(
+                  icon: IconData(0xe30b, fontFamily: 'MaterialIcons'),
+                  text: 'Help & Support',
+                ),
+                SizedBox(height: GAP),
+                const SettingsButton(
+                  icon: Icons.settings_outlined,
+                  text: 'Settings',
+                ),
+                SizedBox(height: GAP),
+                const SettingsButton(
+                  icon: Icons.person_add_outlined,
+                  text: 'Invite a Friend',
+                ),
+                SizedBox(height: GAP),
+                const Button(
+                  text: 'Logout',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                ),
+                SizedBox(height: GAP),
               ],
             ),
-            const ProfilePicture(),
-            SizedBox(height: GAP),
-            Text(
-              'John Doe',
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
-            SizedBox(height: GAP / 2),
-            Text(
-              'john.doe@example.com',
-              style: Theme.of(context).textTheme.displaySmall,
-            ),
-            SizedBox(height: GAP),
-            const Button(
-              text: 'Upgrade to PRO',
-              color: primaryColor,
-              width: 0.5,
-              fontWeight: FontWeight.bold,
-            ),
-            SizedBox(height: GAP * 2),
-            const SettingsButton(
-              icon: IconData(0xf2d0, fontFamily: 'MaterialIcons'),
-              text: 'Privacy',
-            ),
-            SizedBox(height: GAP),
-            const SettingsButton(
-              icon: IconData(0xe314, fontFamily: 'MaterialIcons'),
-              text: 'Purchase History',
-            ),
-            SizedBox(height: GAP),
-            const SettingsButton(
-              icon: IconData(0xe30b, fontFamily: 'MaterialIcons'),
-              text: 'Help & Support',
-            ),
-            SizedBox(height: GAP),
-            const SettingsButton(
-              icon: Icons.settings_outlined,
-              text: 'Settings',
-            ),
-            SizedBox(height: GAP),
-            const SettingsButton(
-              icon: Icons.person_add_outlined,
-              text: 'Invite a Friend',
-            ),
-            SizedBox(height: GAP),
-            const Button(
-              text: 'Logout',
-              fontWeight: FontWeight.bold,
-              fontSize: 18,
-            ),
-            SizedBox(height: GAP),
-          ],
+          ),
         ),
       ),
     );

@@ -6,7 +6,6 @@ class ProfilePicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // circular avatar with yellow border
     return Container(
         width: 100,
         height: 100,
@@ -14,7 +13,6 @@ class ProfilePicture extends StatelessWidget {
           color: Colors.black,
           shape: BoxShape.circle,
           border: Border.all(
-            // primary color of theme
             color: Theme.of(context).primaryColor,
             width: 5.0,
           ),

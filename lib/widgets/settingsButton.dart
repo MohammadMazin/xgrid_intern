@@ -28,11 +28,15 @@ class SettingsButton extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 16,
                 color: Colors.black,
-                fontWeight: FontWeight.w500,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1,
               ),
             ),
             const Spacer(),
-            const Icon(Icons.arrow_forward, color: Colors.black),
+            const Icon(
+              Icons.arrow_forward,
+              color: Colors.black,
+            ),
           ]),
         ),
       ),

@@ -14,96 +14,88 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final themeChange = Provider.of<DarkThemeProvider>(context);
+    final themeProvider = Provider.of<DarkThemeProvider>(context);
+
+    Icon renderIcon() {
+      if (themeProvider.darkTheme) {
+        return const Icon(Icons.wb_sunny_outlined);
+      } else {
+        return const Icon(Icons.nightlight_outlined);
+      }
+    }
+
     return Scaffold(
       body: Container(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              IconButton(
-                icon: const Icon(Icons.nightlight_round_outlined),
-                onPressed: () =>
-                    // set theme to opposite of current
-                    MainApp.of(context).changeTheme(),
-              ),
-            ],
-          ),
-          const ProfilePicture(),
-          SizedBox(height: GAP),
-          Text(
-            'John Doe',
-            style: Theme.of(context).textTheme.displayMedium,
-          ),
-          SizedBox(height: GAP),
-          Text(
-            'john.doe@example.com',
-            style: Theme.of(context).textTheme.displaySmall,
-          ),
-          SizedBox(height: GAP),
-          const Button(
-            text: 'Upgrade to PRO',
-            color: primaryColor,
-            width: 0.5,
-          ),
-          SizedBox(height: GAP * 2),
-          const SettingsButton(
-            icon: IconData(0xf2d0, fontFamily: 'MaterialIcons'),
-            text: 'Privacy',
-          ),
-          SizedBox(height: GAP),
-          const SettingsButton(
-            icon: IconData(0xe314, fontFamily: 'MaterialIcons'),
-            text: 'Purchase History',
-          ),
-          SizedBox(height: GAP),
-          const SettingsButton(
-            icon: IconData(0xe30b, fontFamily: 'MaterialIcons'),
-            text: 'Help & Support',
-          ),
-          SizedBox(height: GAP),
-          const SettingsButton(
-            icon: Icons.settings_outlined,
-            text: 'Settings',
-          ),
-          SizedBox(height: GAP),
-          const SettingsButton(
-            icon: Icons.person_add_outlined,
-            text: 'Invite a Friend',
-          ),
-          SizedBox(height: GAP),
-          const Button(
-            text: 'Logout',
-            fontWeight: FontWeight.bold,
-            fontSize: 18,
-          ),
-          SizedBox(height: GAP),
-        ],
-      )),
+        padding: const EdgeInsets.only(
+          top: 25,
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  icon: renderIcon(),
+                  onPressed: () =>
+                      // set theme to opposite of current
+                      MainApp.of(context).changeTheme(),
+                ),
+              ],
+            ),
+            const ProfilePicture(),
+            SizedBox(height: GAP),
+            Text(
+              'John Doe',
+              style: Theme.of(context).textTheme.displayMedium,
+            ),
+            SizedBox(height: GAP / 2),
+            Text(
+              'john.doe@example.com',
+              style: Theme.of(context).textTheme.displaySmall,
+            ),
+            SizedBox(height: GAP),
+            const Button(
+              text: 'Upgrade to PRO',
+              color: primaryColor,
+              width: 0.5,
+              fontWeight: FontWeight.bold,
+            ),
+            SizedBox(height: GAP * 2),
+            const SettingsButton(
+              icon: IconData(0xf2d0, fontFamily: 'MaterialIcons'),
+              text: 'Privacy',
+            ),
+            SizedBox(height: GAP),
+            const SettingsButton(
+              icon: IconData(0xe314, fontFamily: 'MaterialIcons'),
+              text: 'Purchase History',
+            ),
+            SizedBox(height: GAP),
+            const SettingsButton(
+              icon: IconData(0xe30b, fontFamily: 'MaterialIcons'),
+              text: 'Help & Support',
+            ),
+            SizedBox(height: GAP),
+            const SettingsButton(
+              icon: Icons.settings_outlined,
+              text: 'Settings',
+            ),
+            SizedBox(height: GAP),
+            const SettingsButton(
+              icon: Icons.person_add_outlined,
+              text: 'Invite a Friend',
+            ),
+            SizedBox(height: GAP),
+            const Button(
+              text: 'Logout',
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+            SizedBox(height: GAP),
+          ],
+        ),
+      ),
     );
   }
 }
-
-// Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: <Widget>[
-//             Text(
-//               'Choose your theme:',
-//             ),
-//             Row(
-//               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//               children: [
-//                 ElevatedButton(
-//                     onPressed: () =>
-//                         MainApp.of(context).changeTheme(ThemeMode.light),
-//                     child: Text('Light')),
-//                 ElevatedButton(
-//                     onPressed: () =>
-//                         MainApp.of(context).changeTheme(ThemeMode.dark),
-//                     child: Text('Dark')),
-//               ],
-//             ),
-//           ],
-//         ),

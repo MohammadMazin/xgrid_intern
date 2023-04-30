@@ -16,15 +16,15 @@ const DISPLAY_MEDIUM_FONT_SIZE = 24.0;
 final lightTheme = ThemeData(
   primaryColor: primaryColor,
   elevatedButtonTheme: elevatedButtonTheme,
-  scaffoldBackgroundColor: Colors.white,
+  scaffoldBackgroundColor: Color.fromARGB(255, 250, 250, 250),
   iconTheme: const IconThemeData(
     color: Colors.black,
   ),
   textTheme: const TextTheme(
     displayMedium: TextStyle(
-      fontSize: DISPLAY_MEDIUM_FONT_SIZE,
-      color: Colors.black,
-    ),
+        fontSize: DISPLAY_MEDIUM_FONT_SIZE,
+        color: Colors.black,
+        fontWeight: FontWeight.bold),
     displaySmall: TextStyle(
       fontSize: DISPLAY_SMALL_FONT_SIZE,
       color: Colors.black,
@@ -35,15 +35,15 @@ final lightTheme = ThemeData(
 final darkTheme = ThemeData(
   primaryColor: primaryColor,
   elevatedButtonTheme: elevatedButtonTheme,
-  scaffoldBackgroundColor: Colors.grey[900],
+  scaffoldBackgroundColor: Color.fromARGB(255, 23, 22, 32),
   iconTheme: const IconThemeData(
     color: Colors.white,
   ),
   textTheme: const TextTheme(
     displayMedium: TextStyle(
-      fontSize: DISPLAY_MEDIUM_FONT_SIZE,
-      color: Colors.white,
-    ),
+        fontSize: DISPLAY_MEDIUM_FONT_SIZE,
+        color: Colors.white,
+        fontWeight: FontWeight.bold),
     displaySmall: TextStyle(
       fontSize: DISPLAY_SMALL_FONT_SIZE,
       color: Colors.white,

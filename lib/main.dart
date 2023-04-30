@@ -21,24 +21,21 @@ class MainApp extends StatefulWidget {
 DarkThemeProvider themeChangeProvider = new DarkThemeProvider();
 
 class _MainAppState extends State<MainApp> {
-  bool _themeMode = themeChangeProvider.darkTheme;
+  // bool _themeMode = ThemeMode.system;
 
   void changeTheme() {
     // swap between light and dark mode using provider
-    themeChangeProvider.darkTheme = !themeChangeProvider.darkTheme;
-    setState(() {
-      _themeMode = themeChangeProvider.darkTheme;
-    });
+    themeChangeProvider.setDarkTheme(!themeChangeProvider.darkTheme);
   }
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => DarkThemeProvider(),
+      create: (_) => themeChangeProvider,
       child: Consumer<DarkThemeProvider>(
         builder: (BuildContext context, value, Widget? child) => MaterialApp(
           theme: lightTheme,
-          themeMode: _themeMode ? ThemeMode.dark : ThemeMode.light,
+          themeMode: value.darkTheme ? ThemeMode.dark : ThemeMode.light,
           darkTheme: darkTheme,
           home: Profile(),
         ),

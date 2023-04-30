@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:xgrid_internship/utils/DarkThemeProvider.dart';
 import 'package:xgrid_internship/utils/ThemeData.dart';
 
 class Button extends StatelessWidget {
@@ -18,10 +20,12 @@ class Button extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<DarkThemeProvider>(context);
+
     Color buttonColor() {
       if (color == null) {
-        if (Theme.of(context).brightness == Brightness.dark) {
-          return Colors.black;
+        if (themeProvider.darkTheme) {
+          return Color.fromARGB(255, 212, 212, 212);
         } else {
           return Colors.black;
         }
@@ -32,13 +36,21 @@ class Button extends StatelessWidget {
 
     Color buttonTextColor() {
       if (color == null) {
-        if (Theme.of(context).brightness == Brightness.dark) {
-          return Colors.white;
+        if (themeProvider.darkTheme) {
+          return Colors.black;
         } else {
           return Colors.white;
         }
       } else {
         return Colors.black;
+      }
+    }
+
+    Color buttonBorderColor() {
+      if (color == null) {
+        return Colors.black;
+      } else {
+        return color!;
       }
     }
 
@@ -48,15 +60,18 @@ class Button extends StatelessWidget {
         onPressed: () {},
         style: ElevatedButton.styleFrom(
           backgroundColor: buttonColor(),
+          side: BorderSide(color: buttonBorderColor(), width: 5),
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
           child: Text(
             text,
             style: TextStyle(
-                color: buttonTextColor(),
-                fontWeight: fontWeight,
-                fontSize: fontSize),
+              color: buttonTextColor(),
+              fontWeight: fontWeight,
+              fontSize: fontSize,
+              wordSpacing: 1,
+            ),
             textAlign: TextAlign.center,
           ),
         ),

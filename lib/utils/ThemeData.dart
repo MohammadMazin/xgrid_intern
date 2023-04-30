@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-final Color primaryColor = Color.fromARGB(255, 255, 151, 1);
+const Color primaryColor = Color.fromARGB(255, 255, 151, 1);
 final ElevatedButtonThemeData elevatedButtonTheme = ElevatedButtonThemeData(
   style: ElevatedButton.styleFrom(
     elevation: 0,
     backgroundColor: Color.fromARGB(255, 207, 216, 220),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(10),
+      borderRadius: BorderRadius.circular(20),
     ),
   ),
 );

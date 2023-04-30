@@ -5,13 +5,14 @@ import 'package:xgrid_internship/widgets/profilePicture.dart';
 
 class Profile extends StatelessWidget {
   Profile();
+  final double GAP = 10;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             // moon icon on the right
@@ -25,24 +26,45 @@ class Profile extends StatelessWidget {
               ),
             ],
           ),
-          ProfilePicture(),
-          SizedBox(
-            height: 4,
-          ),
-          Text(
+          const ProfilePicture(),
+          SizedBox(height: GAP),
+          const Text(
             'John Doe',
             style: TextStyle(
               fontSize: 30,
               fontWeight: FontWeight.bold,
             ),
           ),
-          Text(
+          SizedBox(height: GAP),
+          const Text(
             'john.doe@example.com',
           ),
-          Button(
-            icon: IconData(0xe4ed, fontFamily: 'MaterialIcons'),
+          SizedBox(height: GAP),
+          const SettingsButton(
+            icon: IconData(0xf2d0, fontFamily: 'MaterialIcons'),
             text: 'Privacy',
-          )
+          ),
+          SizedBox(height: GAP),
+          const SettingsButton(
+            icon: IconData(0xe314, fontFamily: 'MaterialIcons'),
+            text: 'Purchase History',
+          ),
+          SizedBox(height: GAP),
+          const SettingsButton(
+            icon: IconData(0xe30b, fontFamily: 'MaterialIcons'),
+            text: 'Help & Support',
+          ),
+          SizedBox(height: GAP),
+          const SettingsButton(
+            icon: Icons.settings_outlined,
+            text: 'Settings',
+          ),
+          SizedBox(height: GAP),
+          const SettingsButton(
+            icon: Icons.person_add_outlined,
+            text: 'Invite a Friend',
+          ),
+          SizedBox(height: GAP),
         ],
       )),
     );

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 
-class Button extends StatelessWidget {
+class SettingsButton extends StatelessWidget {
   // constructor that takes icon and text
   final IconData icon;
   final String text;
-  const Button({
+  const SettingsButton({
     super.key,
     required this.icon,
     required this.text,
@@ -16,12 +14,10 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.9,
-      child:
-          // button with border radius and gray background
-          ElevatedButton(
+      child: ElevatedButton(
         onPressed: () {},
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
           child: Row(children: [
             Icon(icon, color: Colors.black),
             SizedBox(
